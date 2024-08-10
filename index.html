@@ -8,42 +8,9 @@
 </head>
 <body>
     <h1>Calculadora de Precios - Bar</h1>
-    
-    <div class="campo">
-        <label for="cerveza">Cerveza (3€):</label>
-        <button onclick="modificarCantidad('cerveza', -1)">-</button>
-        <input type="number" id="cerveza" value="0" min="0" readonly>
-        <button onclick="modificarCantidad('cerveza', 1)">+</button>
-    </div>
-    
-    <div class="campo">
-        <label for="cubata">Cubata (5€):</label>
-        <button onclick="modificarCantidad('cubata', -1)">-</button>
-        <input type="number" id="cubata" value="0" min="0" readonly>
-        <button onclick="modificarCantidad('cubata', 1)">+</button>
-    </div>
-    
-    <div class="campo">
-        <label for="cubalitro">Cubalitro (10€):</label>
-        <button onclick="modificarCantidad('cubalitro', -1)">-</button>
-        <input type="number" id="cubalitro" value="0" min="0" readonly>
-        <button onclick="modificarCantidad('cubalitro', 1)">+</button>
-    </div>
-    
-    <div class="campo">
-        <label for="refresco">Refresco (2€):</label>
-        <button onclick="modificarCantidad('refresco', -1)">-</button>
-        <input type="number" id="refresco" value="0" min="0" readonly>
-        <button onclick="modificarCantidad('refresco', 1)">+</button>
-    </div>
-    
-    <div class="campo">
-        <label for="mojito">Mojito (5€):</label>
-        <button onclick="modificarCantidad('mojito', -1)">-</button>
-        <input type="number" id="mojito" value="0" min="0" readonly>
-        <button onclick="modificarCantidad('mojito', 1)">+</button>
-    </div>
-    
+
+    <div id="productos"></div>
+
     <h2 id="precioTotal">Precio Total: 0€</h2>
 
     <div class="campo">
@@ -55,63 +22,6 @@
 
     <button class="reiniciar" onclick="reiniciarCampos()">Reiniciar</button>
 
-    <script>
-        function modificarCantidad(id, cambio) {
-            const input = document.getElementById(id);
-            const nuevaCantidad = parseInt(input.value) + cambio;
-            if (nuevaCantidad >= 0) {
-                input.value = nuevaCantidad;
-                calcularPrecioTotal();
-            }
-        }
-
-        function calcularPrecioTotal() {
-            const precios = {
-                cerveza: 3,
-                cubata: 5,
-                cubalitro: 10,
-                refresco: 2,
-                mojito: 5
-            };
-
-            const cervezaCantidad = parseInt(document.getElementById('cerveza').value) || 0;
-            const cubataCantidad = parseInt(document.getElementById('cubata').value) || 0;
-            const cubalitroCantidad = parseInt(document.getElementById('cubalitro').value) || 0;
-            const refrescoCantidad = parseInt(document.getElementById('refresco').value) || 0;
-            const mojitoCantidad = parseInt(document.getElementById('mojito').value) || 0;
-
-            const total = (cervezaCantidad * precios.cerveza) +
-                          (cubataCantidad * precios.cubata) +
-                          (cubalitroCantidad * precios.cubalitro) +
-                          (refrescoCantidad * precios.refresco) +
-                          (mojitoCantidad * precios.mojito);
-
-            document.getElementById('precioTotal').textContent = `Precio Total: ${total}€`;
-
-            calcularCambio();
-        }
-
-        function calcularCambio() {
-            const total = parseFloat(document.getElementById('precioTotal').textContent.replace('Precio Total: ', '').replace('€', '')) || 0;
-            const dineroCliente = parseFloat(document.getElementById('dineroCliente').value) || 0;
-
-            const cambio = dineroCliente - total;
-
-            document.getElementById('cambio').textContent = `Cambio: ${cambio >= 0 ? cambio : 0}€`;
-        }
-
-        function reiniciarCampos() {
-            document.getElementById('cerveza').value = 0;
-            document.getElementById('cubata').value = 0;
-            document.getElementById('cubalitro').value = 0;
-            document.getElementById('refresco').value = 0;
-            document.getElementById('mojito').value = 0;
-            document.getElementById('dineroCliente').value = 0;
-
-            calcularPrecioTotal();
-        }
-
-        calcularPrecioTotal();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

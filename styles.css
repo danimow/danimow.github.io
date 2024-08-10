@@ -16,18 +16,28 @@ h1, h2 {
 
 .campo {
     margin-bottom: 15px;
-    text-align: center;
+    display: flex;
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;  /* Alinea el contenido verticalmente */
+    width: 100%;
+    max-width: 600px;
 }
 
-label {
+.campo label {
     font-size: 18px;
-    margin-right: 10px;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
 }
 
 input[type="number"] {
-    width: 60px;
-    padding: 10px;
-    font-size: 18px;
+    width: 40px;
+    padding: 8px;
+    font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
     text-align: center;
@@ -36,14 +46,15 @@ input[type="number"] {
 }
 
 button {
-    width: 40px;
-    padding: 10px;
-    font-size: 18px;
+    width: 60px;
+    padding: 8px;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     background-color: #007bff;
     color: white;
+    margin: 0 5px;
 }
 
 button:hover {
@@ -89,11 +100,22 @@ button.reiniciar:hover {
         padding: 10px;
     }
 
-    input[type="number"], button {
-        width: 100%;
+    .campo {
+        flex-direction: row;  /* Alinea los elementos en una fila en móvil */
+        justify-content: space-between;  /* Distribuye el espacio entre los elementos */
+    }
+
+    .campo label {
         font-size: 16px;
-        padding: 8px;
-        margin: 5px 0;
+        margin-right: 10px;
+    }
+
+    input[type="number"] {
+        width: 30px;
+    }
+
+    button {
+        width: 60px;
     }
 
     button.reiniciar {
@@ -101,15 +123,7 @@ button.reiniciar:hover {
         font-size: 14px;
     }
 
-    h1, h2 {
-        font-size: 18px;
-    }
-
-    label {
-        font-size: 16px;
-    }
-
-    .campo {
-        margin-bottom: 10px;
+    h2 {
+        font-size: 20px;
     }
 }
