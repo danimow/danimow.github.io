@@ -62,7 +62,7 @@ function calcularCambio() {
 
     const cambio = dineroCliente - total;
 
-    document.getElementById('cambio').textContent = `Cambio: ${cambio >= 0 ? cambio : 0}€`;
+    document.getElementById('cambio').textContent = `Cambio: ${cambio}€`;
 }
 
 // Función para reiniciar los campos
